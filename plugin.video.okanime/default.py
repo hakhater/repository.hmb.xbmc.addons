@@ -31,10 +31,10 @@ iconPath_AnimeMovie = os.path.join(thumbsDir, "anime.jpeg")
 iconPathMost_watched = os.path.join(thumbsDir, "top5.jpeg")
 iconPathMore = os.path.join(thumbsDir, "more.jpeg")
 iconPathAtoZ = os.path.join(thumbsDir, "AtoZ.png")
-urlShows = "http://okanime.com/category/anime/page/1/" 
-urlAtoZ = "http://okanime.com/letter/A/?orderby=title"
-urlMovies = "http://okanime.com/category/movie/page/1/"
-urlTop5 = "http://okanime.com/category/anime/page/1/"
+urlShows = "http://www.okanime.com/animes" 
+urlAtoZ = "http://www.okanime.com/animes?sort=published_at&start_from=A"
+urlMovies = "http://www.okanime.com/movies"
+urlTop5 = "http://www.okanime.com/movies?direction=desc&sort=rating_caches.avg"
 
 def index(): 
     addDir("Latest Items اخر الإضافات", urlShows, 'listShows', iconPathShows)
@@ -49,7 +49,7 @@ def ListAtoZ(url):
     listAtoZ = string.uppercase[:26]
     i = 0
     while i< 26:
-        addDir(listAtoZ[i], "http://okanime.com/letter/"+listAtoZ[i] +"/page/1/", 'listShows',os.path.join(thumbsDir,listAtoZ[i] + ".png" )  )
+        addDir(listAtoZ[i], "http://www.okanime.com/animes?page=1&sort=published_at&start_from=A"+listAtoZ[i] +"/page/1/", 'listShows',os.path.join(thumbsDir,listAtoZ[i] + ".png" )  )
         i+=1
     if forceViewMode:
         xbmc.executebuiltin('Container.SetViewMode('+viewModeNewsShows+')')
